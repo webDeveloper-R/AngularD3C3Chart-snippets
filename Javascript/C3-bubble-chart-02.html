@@ -1,0 +1,88 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../library/c3.css">
+    <style>
+        .c3-axis-y .tick line {
+            display: none;
+        }
+        #chart{
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="chart"></div>
+
+<script src="../library/d3.min.js" charset="utf-8"></script>
+<script src="../library/c3.js"></script>
+<script>
+    var chart = c3.generate({
+        data: {
+            x:'x',
+            columns: [
+                ['x', '2013-01-15', '2013-02-15', '2013-03-15', '2013-04-15', '2013-05-15', '2013-06-15', '2013-01-15', '2013-02-15', '2013-03-15', '2013-04-15', '2013-04-15', '2013-05-15', '2013-06-15'],
+                ['blog', '5', '5', '5', '5', '5', '5','5', '5', '5', '5', '5', '5','5', '5', '5', '5'],
+                ['facebook', '15', '15', '15', '15', '15', '15'],
+                ['Twitter', '25', '25', '25', '25', '25', '25'],
+                ['Instagram', '35', '35', '35', '35', '35', '35'],
+                ['Pinterest', '45', '45', '45', '45', '45', '45']
+            ],
+            type: 'scatter'
+        },
+        tooltip: {
+            format: {
+                value: function (value, ratio, id) {
+                    // console.log("ratio, id:", ratio, id);
+                    if (value == 5) return 'Blog';
+                    else if (value == 15) return 'Facebook';
+                    else if (value == 25) return 'Twitter';
+                    else if (value == 35) return 'Instagram';
+                    else if (value == 45) return 'Pinterest';
+                    else return '';
+                }
+            }
+        },
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick:{
+                    format: '%b'
+                }
+            },
+            y: {
+                min: 0,
+                max: 50,
+                padding:{
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    format: function (d) {
+                        switch (d) {
+                            case 5:
+                                return "Blog"
+                            case 15:
+                                return "Facebook"
+                            case 25:
+                                return "Twitter"
+                            case 35:
+                                return "Instagram"
+                            case 45:
+                                return "Pinterest"
+                        }
+                    },
+                    values: [5, 15, 25, 35, 45],
+                    width: 0
+                }
+            }
+        },
+        point: {
+            r: function(d) {
+                // console.log("d value:", d);
+                return (d.index + 1) * 2;
+            }
+        }
+    });
+</script>
+</body>
+</html>
