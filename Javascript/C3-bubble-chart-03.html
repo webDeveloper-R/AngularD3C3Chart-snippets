@@ -1,0 +1,156 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../library/c3.css">
+    <style>
+        .c3-axis-y .tick line {
+            display: none;
+        }
+        #chart{
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="chart2"></div>
+<div id="chart1"></div>
+
+<script src="../library/d3.min.js" charset="utf-8"></script>
+<script src="../library/c3.js"></script>
+<script>
+    var values1 = [10, 20, 30, 40, 40, 40, 50];
+
+    var chart = c3.generate({
+        bindto: '#chart1',
+        data: {
+            x: 'data_x',
+            xs: {
+                data1: 'data_x'
+            },
+            columns: [
+                ['data1', 0, 0, 0, 0, 0, 0, 0],
+                ['data_x', '2016-01-05', '2016-02-08', '2016-03-20', '2016-03-20', '2016-04-01', '2016-05-05', '2016-06-10']
+            ],
+            type: 'scatter',
+            colors: {
+                data1: 'green'
+            }
+        },
+        legend: {
+            show: false
+        },
+        size: {
+            width: 1000,
+            height: 100
+        },
+        point: {
+            show: true,
+            r: function(d) {
+                console.log(d);
+                return 10 + d.index*3;
+            },
+            focus: {
+                expand: {
+                    enabled: false
+                }
+            }
+        },
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick: {
+                    format: function(x) {
+                        var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+                        return (month[x.getMonth()]);
+                    },
+                    outer: false,
+                    fit: true,
+                    values: ['2016-01-01', '2016-02-01', '2016-03-01', '2016-04-01', '2016-05-01', '2016-06-01', '2016-07-01', '2016-08-01', '2016-09-01', '2016-10-01', '2016-11-01', '2016-12-01']
+                },
+                padding:{
+                    top: 50
+                },
+                max: '2016-12-31',
+                min: '2016-01-01'
+            },
+            y: {
+                show: false,
+                max: 40,
+                min: -40
+            }
+        },
+        tooltip: {
+            show: false
+        }
+
+    });
+
+    var chart = c3.generate({
+        bindto: '#chart2',
+        data: {
+            x: 'data_x',
+            xs: {
+                data1: 'data_x'
+            },
+            columns: [
+                ['data1', 0, 0, 0, 0, 0, 0, 0],
+                ['data_x', '2016-01-05', '2016-02-08', '2016-03-20', '2016-03-20', '2016-04-01', '2016-05-05', '2016-06-10']
+            ],
+            type: 'scatter',
+            colors: {
+                data1: 'red'
+            }
+        },
+        legend: {
+            show: false
+        },
+        size: {
+            width: 1000,
+            height: 100
+        },
+        point: {
+            show: true,
+            r: function(d) {
+                console.log(d);
+                return 10 + d.index*3;
+            },
+            focus: {
+                expand: {
+                    enabled: false
+                }
+            }
+        },
+        axis: {
+            x: {
+                show: false,
+                type: 'timeseries',
+                tick: {
+                    format: function(x) {
+                        var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+                        return (month[x.getMonth()]);
+                    },
+                    outer: false,
+                    fit: true,
+                    values: ['2016-01-01', '2016-02-01', '2016-03-01', '2016-04-01', '2016-05-01', '2016-06-01', '2016-07-01', '2016-08-01', '2016-09-01', '2016-10-01', '2016-11-01', '2016-12-01']
+                },
+                padding:{
+                    top: 50
+                },
+                max: '2016-12-31',
+                min: '2016-01-01'
+            },
+            y: {
+                show: false,
+                max: 40,
+                min: -40
+            }
+        },
+        tooltip: {
+            show: false
+        }
+
+    });
+</script>
+</body>
+</html>
