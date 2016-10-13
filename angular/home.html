@@ -1,0 +1,29 @@
+<div class="jumbotron text-center">
+    <h1>The Homey Page</h1>
+    <p>This page demonstrates <span class="text-danger">nested</span> views.</p>
+    <a ui-sref=".list" class="btn btn-primary">List</a>
+    <a ui-sref=".paragraph" class="btn btn-danger">Paragraph</a>
+</div>
+<div>{{ message }}</div>
+<div id="bubbleContainer"></div>
+<div id="chart2"></div>
+<div id="chart1"></div>
+<div ng-controller="calendarCtrl">
+    <calendar-md  flex layout layout-fill
+            calendar-direction="direction"
+                 on-prev-month="prevMonth"
+                 on-next-month="nextMonth"
+                 on-day-click="dayClick"
+                 title-format="'MMMM y'"
+                 ng-model='selectedDate'
+                 week-starts-on="weekStartsOn"
+                tooltips="tooltips"
+                day-format="dayFormat"
+                day-label-format="'EEE'"
+                day-label-tooltip-format="'EEEE'"
+                day-tooltip-format="'fullDate'"
+                day-content="setDayContent"
+                disable-future-selection="false"
+                 aria-invalid="false"></calendar-md>
+</div>
+
