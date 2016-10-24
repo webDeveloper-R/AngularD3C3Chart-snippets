@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ui.router', 'ngMaterial', 'materialCalendar']);
+var routerApp = angular.module('routerApp', ['ui.router', 'ngMaterial', 'materialCalendar', 'gridshore.c3js.chart']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
 
