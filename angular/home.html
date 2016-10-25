@@ -1,3 +1,4 @@
+
 <div class="jumbotron text-center">
     <h1>The Homey Page</h1>
     <p>This page demonstrates <span class="text-danger">nested</span> views.</p>
@@ -25,5 +26,23 @@
                 day-content="setDayContent"
                 disable-future-selection="false"
                  aria-invalid="false"></calendar-md>
+</div>
+
+<div>
+    <c3chart bindto-id="pieChart1">
+        <chart-column column-id="data11"
+                      column-name="data11"
+                      column-color="red"
+                      column-values="5"
+                      column-type="pie"/>
+        <chart-column column-id="data12_x"
+                      column-name="data12"
+                      column-values="95"
+                      column-color="blue"
+                      column-type="pie"/>
+        <chart-legend show-legend="false"/>
+        <chart-size chart-width="80" chart-height="80"/>
+        <chart-pie show-label="true" threshold-label="0"/>
+    </c3chart>
 </div>
 
